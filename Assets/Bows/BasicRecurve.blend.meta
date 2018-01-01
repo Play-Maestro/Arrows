@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 5ee6997a42628454093a9efcd436976c
-timeCreated: 1514817068
+timeCreated: 1514834730
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
@@ -46,9 +46,7 @@ ModelImporter:
     4300000: Bow
     7400000: Rest
     7400002: Ready
-    7400004: Draw
-    7400006: Rest
-    7400008: Drawn
+    7400004: Drawn
     9500000: //RootNode
     13700000: Bow
   materials:
@@ -78,8 +76,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Rest
       takeName: BowRigAction
-      firstFrame: 0
-      lastFrame: 1
+      firstFrame: 1
+      lastFrame: 2
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -87,7 +85,7 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 0
-      loopBlend: 1
+      loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -115,7 +113,7 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 0
-      loopBlend: 1
+      loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -134,8 +132,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Drawn
       takeName: BowRigAction
-      firstFrame: 13
-      lastFrame: 14
+      firstFrame: 11
+      lastFrame: 12
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -198,7 +196,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    rootMotionBoneName: Handle_T
+    rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
