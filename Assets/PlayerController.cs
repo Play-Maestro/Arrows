@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	public float cameraSpeed = 3;
+	public float moveSpeed = 4;
 	public Camera playerCamera;
 
 
@@ -14,7 +15,12 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
+		float moveX = Input.GetAxis ("Horizontal") * Time.deltaTime * moveSpeed;
+		float moveZ = Input.GetAxis ("Vertical") * Time.deltaTime * moveSpeed;
+		transform.Translate (moveX, 0, moveZ);
+
+		//Control the camera using sensitivity settings
 		float mouseX = ((Input.mousePosition.x/Screen.width)*2)-1;
 		float mouseY = (((Input.mousePosition.y/Screen.height)*2)-1)*-1;
 		Vector3 rotation = new Vector3(0, mouseX*(Mathf.Abs(mouseX)*Mathf.Abs(mouseX))*cameraSpeed, 0);
@@ -22,7 +28,6 @@ public class PlayerController : MonoBehaviour {
 
 		transform.Rotate(rotation);
 		float currentCameraRotation = playerCamera.transform.localRotation.x;
-		print (currentCameraRotation);
 		if(currentCameraRotation < .5f && currentCameraRotation > -.5f)
 			playerCamera.transform.Rotate(pitch);
 		else if (currentCameraRotation >= .5f && pitch.x < 0)

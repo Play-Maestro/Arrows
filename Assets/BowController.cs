@@ -30,13 +30,20 @@ public class BowController : MonoBehaviour {
 		if(Input.GetMouseButtonUp(0) && shooting) {
 			bowAnimator.SetTrigger("Release");
 			drawEnd = Time.time;
-			fireForce = Mathf.Clamp(drawEnd-drawStart, 0, 1f)*50;
+			fireForce = Mathf.Clamp(drawEnd-drawStart, 0, 0.5f)*100;
 			Fire();
-			Invoke ("Reload", 0.2f);
+			shooting = false;
 		}
 
 		Ray lookRay = playerCamera.ScreenPointToRay(Input.mousePosition);
 		aim.transform.rotation = Quaternion.LookRotation(lookRay.direction);
+
+		//zoom
+		if (Input.GetMouseButton (1)) {
+			playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, 20, 0.5f);
+		} else {
+			playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, 60, 0.5f);
+		}
 
 	}
 
