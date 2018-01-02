@@ -16,7 +16,7 @@ public class ArrowBehavior : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
-		if(rb.velocity.magnitude > 5 && inFlight) {
+		if(rb.velocity.magnitude > 2 && inFlight) {
 			transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(rb.velocity), 0.05f);
 		}
 	}
