@@ -23,6 +23,12 @@ public class PlayerController : MonoBehaviour {
 		//Control the camera using sensitivity settings
 		float mouseX = ((Input.mousePosition.x/Screen.width)*2)-1;
 		float mouseY = (((Input.mousePosition.y/Screen.height)*2)-1)*-1;
+		if (mouseX < 0.25f && mouseX > -0.25f) {
+			mouseX = 0;
+		}
+		if (mouseY < 0.25f && mouseY > -0.25f) {
+			mouseY = 0;
+		}
 		Vector3 rotation = new Vector3(0, mouseX*(Mathf.Abs(mouseX)*Mathf.Abs(mouseX))*cameraSpeed, 0);
 		Vector3 pitch = new Vector3(mouseY*(Mathf.Abs(mouseY)*Mathf.Abs(mouseY))*cameraSpeed, 0, 0);
 

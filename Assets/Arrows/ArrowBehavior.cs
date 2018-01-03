@@ -11,6 +11,7 @@ public class ArrowBehavior : MonoBehaviour {
 
 	void Start () {
 		rb = GetComponent<Rigidbody>();
+		Invoke ("GetRidOfIt", 10);
 	}
 
 
@@ -35,5 +36,9 @@ public class ArrowBehavior : MonoBehaviour {
 		if(inFlight) {
 			StickTo(collider.gameObject);
 		}
+	}
+
+	void GetRidOfIt () {
+		Destroy (this.gameObject);
 	}
 }

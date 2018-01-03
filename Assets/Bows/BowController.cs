@@ -8,16 +8,20 @@ public class BowController : MonoBehaviour {
 	public GameObject arrow;
 	public Camera playerCamera;
 	public GameObject aim;
+	public AudioClip drawAudio;
+	public AudioClip releaseAudio;
 
 	private Animator bowAnimator;
 	private bool shooting = false;
 	private float drawStart;
 	private float drawEnd;
 	private float fireForce = 0;
+	private AudioSource bowAudio;
 
 	// Use this for initialization
 	void Start () {
 		bowAnimator = bow.GetComponent<Animator>();
+		bowAudio = bow.GetComponent<AudioSource> ();
 	}
 	
 	// Update is called once per frame
@@ -26,12 +30,16 @@ public class BowController : MonoBehaviour {
 			bowAnimator.SetTrigger("Draw");
 			drawStart = Time.time;
 			shooting = true;
+			bowAudio.clip = drawAudio;
+			bowAudio.Play ();
 		}
 		if(Input.GetMouseButtonUp(0) && shooting) {
 			bowAnimator.SetTrigger("Release");
 			drawEnd = Time.time;
 			fireForce = Mathf.Clamp(drawEnd-drawStart, 0, 0.5f)*100;
 			Fire();
+			bowAudio.clip = releaseAudio;
+			bowAudio.Play ();
 			shooting = false;
 		}
 
